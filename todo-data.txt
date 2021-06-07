@@ -1,0 +1,1 @@
+[{"task":"Teste","done":"🟢","pomodoro":"🍅"},{"task":"Iuri","done":"🔴","pomodoro":""},{"task":"Cla","done":"🔴","pomodoro":""},{"task":"Ze","done":"🔴","pomodoro":""}]
