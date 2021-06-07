@@ -16,9 +16,24 @@ while(keepRunning !== false) {
     }
 
     if(options[action] === 'list') {
+        console.log("=========================");
         toDos.forEach((todo) => {
             console.log(todo.done + " " + todo.task);
-        })
+        });
+        console.log("=========================");
+    }
+
+    if(options[action] === 'check') {
+        const tasks = toDos.map((item) => item.done + " " + item.task);
+        const checkAction = readlineSync.keyInSelect(tasks, "What do you want to check/uncheck?");
+
+        if(toDos[checkAction].done === notDone) {
+            toDos[checkAction].done = done;
+            console.log(`${toDos[checkAction].task} was checked as done! 🟢`);
+        } else {
+            toDos[checkAction].done = notDone;
+            console.log(`${toDos[checkAction].task} was checked as undone! 🔴`);
+        }
     }
 
     if(options[action] === undefined) {
