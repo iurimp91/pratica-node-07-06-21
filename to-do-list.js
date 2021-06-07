@@ -4,23 +4,24 @@ const options = ['add', 'list', 'check', 'remove'];
 
 let toDos = [];
 let keepRunning = true;
+const notDone = '🔴';
+const done = '🟢';
 
 while(keepRunning !== false) {
     const action = readlineSync.keyInSelect(options, "Type your command");
 
     if(options[action] === 'add') {
-        toDos.push(readlineSync.question("What do you want to do? "));
+        const task = readlineSync.question("What do you want to do? ");
+        toDos.push({ task, done: notDone});
     }
 
-    if(options[action] === 'add') {
-        toDos.push(readlineSync.question("What do you want to do? "));
+    if(options[action] === 'list') {
+        toDos.forEach((todo) => {
+            console.log(todo.done + " " + todo.task);
+        })
     }
 
     if(options[action] === undefined) {
         keepRunning = false;
     }
-    
-    console.log(toDos);
-    console.log(action);
-    console.log(options[action]);
 }
